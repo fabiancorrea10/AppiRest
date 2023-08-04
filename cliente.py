@@ -1,6 +1,6 @@
 import requests
-response = requests.get("http//localhost:8000/data/key1")
+response = requests.get("http//localhost:8000/data/num")
 print(response.json())
 
-response = requests.put("http//localhost:8000/data/key1",data={"value": "updated_value2"}) 
+response = requests.put("http//localhost:8000/data/num",data={"value": "updated_value2"}) 
                        

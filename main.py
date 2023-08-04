@@ -4,23 +4,23 @@ import json
 data = {}
 with open("books.json") as j:
     data = json.load(j)
-print(data[1])
-print(data[2]['author'])
-#print(data['language'])
-#print(data['country'])
-#print(data['imageLink'])
-#print(data['link'])
+          
 app = FastAPI()
-@app.get("/data/{key}")
-async def read_data(key: str):
-    if key in data:
-        return {libro: data[key]}
+@app.get("/data/[num]")
+async def ingresar_nro(num: int):
+    if num>=0 and num<100:
+        print(f"titulo",data[num]["title"])
+        print(f"idioma",data[num]["language"])
+        print(f"autor",data[num]["author"])
+        
     else:
-        return {"message": "Key not found"}
-@app.put("/data/{key}")
-async def update_data(key: str, value: str):
-    if key in data:
-        data[key] = value
+        print ("El nro ingresado no es correcto, adios")
+        exit
+        
+@app.put("/lenguaje/[num]{value}")
+async def lenguaje(num: int, valor: str):
+    if num>=0 and num<100:
+        data[num]["language"] = valor
         return {"message": "Data updated successfully"}
     else:
         return {"message": "Key not found"}  
