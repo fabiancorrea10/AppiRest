@@ -21,6 +21,6 @@ async def ingresar_nro(num: int):
 async def lenguaje(num: int, valor: str):
     if num>=0 and num<100:
         data[num]["language"] = valor
-        return {"message": "Data updated successfully"}
+        return {"mensaje": "actualizacion exitosa"}
     else:
-        return {"message": "Key not found"}  
+        return {"mensaje": "info no actualizada"}  
