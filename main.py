@@ -9,12 +9,12 @@ app = FastAPI()
 @app.get("/data/[num]")
 async def ingresar_nro(num: int):
     if num>=0 and num<100:
-        print(f"titulo",data[num]["title"])
-        print(f"idioma",data[num]["language"])
-        print(f"autor",data[num]["author"])
+        return{f"titulo":data[num]["title"],"idioma":data[num]["language"],"autor":data[num]["author"]}
+        
+        
         
     else:
-        print ("El nro ingresado no es correcto, adios")
+        return{"El nro ingresado no es correcto, adios"}
         exit
         
 @app.put("/lenguaje/[num]{value}")
