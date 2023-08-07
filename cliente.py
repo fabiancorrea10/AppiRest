@@ -1,6 +1,8 @@
 import requests
-response = requests.get("http://127.0.0.1:8000/data/num")
+url = 'http://192.68.0.25:8000'
+response = requests.get(url)
+print(response.status_code)
 print(response.json())
 
-response = requests.put("http://127.0.0.1:8000/data/num",data={"language": "idioma actualizado"}) 
+response = requests.put(url) 
                         
