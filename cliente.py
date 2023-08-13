@@ -19,5 +19,7 @@ else:
 idiom = input ("Ingrese nuevo idioma: ")
 req1 = url+"/lenguaje/[num]{value}?num="+cad_libro+"&valor="+idiom
 response1 = requests.put(req1) 
+with open("books.json",'w') as f:
+     json.dump(data,f,indent=4)
 print(response1.json())
-data[libro]["language"]=idiom                    
+#data[libro]["language"]=idiom                    
