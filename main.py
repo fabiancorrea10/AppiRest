@@ -21,6 +21,8 @@ async def ingresar_nro(num: int):
 async def lenguaje(num: int, valor: str):
     if num>=0 and num<100:
         data[num]["language"] = valor
+        with open("books.json",'w') as f:
+            json.dump(data,f,indent=4)
         return {"mensaje": "actualizacion exitosa"}
     else:
         return {"mensaje": "info no actualizada"}  
